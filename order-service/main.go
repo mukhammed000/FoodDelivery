@@ -30,8 +30,6 @@ func main() {
 
 	op.RegisterProductServiceServer(s, service.NewProductService(db))
 	op.RegisterCartServiceServer(s, service.NewCartService(db))
-	// op.RegisterMemoriesServiceServer(s, service.NewMemoriesService(db))
-	// op.RegisterSharedMemoriesServiceServer(s, service.NewSharedMemoriesService(db))
 
 	log.Printf("server listening at %v", listener.Addr())
 	if err := s.Serve(listener); err != nil {

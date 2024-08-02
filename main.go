@@ -45,7 +45,6 @@ func updateTodoList(input string) {
 func main() {
 
     http.HandleFunc("/todo", func(w http.ResponseWriter, r *http.Request) {
-        // Upgrade upgrades the HTTP server connection to the WebSocket protocol.
         conn, err := upgrader.Upgrade(w, r, nil)
         if err != nil {
             log.Print("upgrade failed: ", err)
@@ -53,7 +52,6 @@ func main() {
         }
         defer conn.Close()
 
-        // Continuosly read and write message
         for {
             mt, message, err := conn.ReadMessage()
             if err != nil {
